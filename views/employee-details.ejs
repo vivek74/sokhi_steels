@@ -1,0 +1,31 @@
+<% include ./partials/header %>
+	<div class="container top-margin" >
+		<div class="row">
+			<% allemployee.forEach(function(allemployee){ %>
+				<div class="col-lg-3 col-md-3 mt-2">
+					<div class="card">
+					  <div class="card-body card-1">
+					    <h5 style="text-align: center; text-transform: uppercase; color: #003b46;" class="card-title"><%=allemployee.employee%></h5>
+					    <p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+					    	<i style="font-size: 8rem; color: #07575b;" class="fas fa-user"></i>
+					    </p>
+					    <hr>
+					    <a style="color: red;" href="#" class="card-link ml-4">DELETE</a>
+					    <a style="color: #003b46; href="#" class="card-link">USER DETAILS</a>
+					  </div>
+					</div>
+				</div>
+			<%});%>
+
+			<div class="col-lg-3 col-md-3 mt-2">
+				<div onclick="window.location.href='/admin/admin-pannel/create-new-employee'" class="card">
+				  <div class="card-body card-1">
+				    <p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+				    	<i style="font-size: 8rem; color: red;" class="far fa-plus-square"></i>
+				    </p>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+<% include ./partials/footer %>

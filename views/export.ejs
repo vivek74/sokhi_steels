@@ -1,0 +1,129 @@
+<% include ./partials/header %>
+	<div class="container-fluid top-margin">
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<div class="card mt-3">
+				  <div class="card-body">
+				  	<h5 class="card-title">Product List</h5>
+				  	<div class="table-responsive">
+					    <table style="font-size: 12px;" class="table table-striped table-dark">
+						  <thead>
+						    <tr>
+						      <th scope="col">LOW</th>
+						      <th scope="col">Item No</th>
+						      <th scope="col">Item Name</th>
+						      <th scope="col">Last updated</th>
+						      <th scope="col">Available Item</th>
+						      <th scope="col">Cost Per Item</th>
+						      <th scope="col">Total Cost</th>
+						      <th scope="col">Description</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						  	<% allitems.reverse().forEach(function(allitems){ %>
+						    <tr>
+						      <%if(allitems.itemQty <= 10){%>
+						      	<td style="color: red;">LOW</td>
+						      <%} else {%>
+						      	<td>OK</td>
+						      <%}%>
+						      <th style="text-transform: uppercase;"><%=allitems.ItemNo%></th>
+						      <td style="text-transform: uppercase;"><%=allitems.ItemName%></td>
+						      <td><%= moment(allitems.LastUpdated).format("DD-MMM-YYYY") %></td>
+						      <td><%=allitems.itemQty%></td>
+						      <td>₹ <%=allitems.costPerItem%>/-</td>
+						      <td>₹ <%=allitems.totalCost%>/-</td>
+						      <td><%=allitems.itemDisp%></td>
+						    </tr>
+						    <%});%>
+						  </tbody>
+						</table>
+					</div>
+				  </div>
+				</div>
+			</div>
+
+			<!--export details-->
+
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="card mt-3">
+				  <div class="card-body">
+				  	<h5 class="card-title">Export List</h5>
+				  	<div class="table-responsive">
+					    <table style="font-size: 12px;" class="table table-striped table-dark">
+						  <thead>
+						    <tr>
+						      <th scope="col">Item No</th>
+						      <th scope="col">Item Name</th>
+						      <th scope="col">Sell Date</th>
+						      <th scope="col">QTY</th>
+						      <th scope="col">Cost Per Item</th>
+						      <th scope="col">Total Cost</th>
+						      <th scope="col">Customer Name</th>
+						      <th scope="col">Customer Contact No</th>
+						      <th scope="col">Customer Address</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						  	<% exportitem.reverse().forEach(function(exportitems){ %>
+						    <tr>
+						      <th style="text-transform: uppercase;"><%=exportitems.ItemNo%></th>
+						      <td style="text-transform: uppercase;"><%=exportitems.ItemName%></td>
+						      <td><%= moment(exportitems.SellDate).format("DD-MMM-YYYY") %></td>
+						      <td><%=exportitems.itemQty%></td>
+						      <td>₹ <%=exportitems.costPerItem%>/-</td>
+						      <td>₹ <%=exportitems.totalCost%>/-</td>
+						      <td><%=exportitems.CustomerName%></td>
+						      <td><%=exportitems.CustomerContact%></td>
+						      <td><%=exportitems.CustomerAddress%></td>
+						    </tr>
+						    <%});%>
+						  </tbody>
+						</table>
+					</div>
+				  </div>
+				</div>
+			</div>
+		</div>
+
+		
+
+		<!--update-->
+		<div class="container-fluid mt-5">
+			<div class="card">
+				<div class="card-body">
+					<div class="table-responsive">
+						<h5 class="card-title">Export</h5>
+					    <table style="font-size: 12px;" class="table table-striped table-dark">
+						  <thead>
+						    <tr>
+						      <th scope="col">Item No</th>
+						      <th scope="col">Qty</th>
+						      <th scope="col">Customer Name</th>
+						      <th scope="col">Customer Contact No.</th>
+						      <th scope="col">Customer Address</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						  	<form action="/work-page/inventory-order/export-details" method="POST">
+							    <tr>
+							      <th scope="row"><input name="itemNo" type="text" class="form-control form-control-sm" placeholder="Enter item No"></th>
+							   
+							      <td><input name="itemQty" type="text" class="form-control form-control-sm" placeholder="QTY"></td>
+
+							      <td><input name="customerName" type="text" class="form-control form-control-sm" placeholder="Customer Name"></td>
+							      <td><input name="contactNo" type="text" class="form-control form-control-sm" placeholder="Phone Number"></td>
+							      <td><input name="customerAddress" type="text" class="form-control form-control-sm" placeholder="Customer Address"></td>
+
+							      <td><button type="submit" class="btn btn-primary btn-sm">Submit</button></td>
+							    </tr>
+
+							</form>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<% include ./partials/footer %>

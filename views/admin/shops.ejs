@@ -1,0 +1,70 @@
+<% include ../partials/header %>
+
+	<div class="container top-margin">
+		<div class="row">
+			<% allshops.forEach(function(shop){ %>
+				<div class="col-lg-3 col-md-3 mt-4">
+					<div class="card" onclick="window.location.href='/admin/admin-pannel/production-shops/<%=shop.id%>'">
+						<div class="card-body card-1">
+						    <h5 style="text-align: center; text-transform: uppercase; color: #003b46;" class="card-title"><%=shop.shopName%></h5>
+						    <hr>
+						    <p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+						    	<i style="font-size: 8rem; color: #07575b;" class="fas fa-industry"></i>
+						    </p>
+						 </div>
+					</div>
+				</div>
+			<%})%>
+
+			<div class="col-lg-3 col-md-3 mt-4">
+				<div class="card" data-toggle="modal" data-target="#addform">
+					<div class="card-body card-1">
+					    <p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+					    	<i style="font-size: 8rem; color: red;" class="fas fa-plus"></i>
+					    </p>
+					 </div>
+				</div>
+			</div>
+
+		</div>
+
+		<!--model for add shop-->
+		<div class="modal fade" id="addform" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		  	<form action="/admin/admin-pannel/production-shops" method="post">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalCenterTitle">Create Shop</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        
+				  <div class="row">
+				    <div class="col">
+				      <select name="HandelBy" class="form-control form-control-sm">
+						  <option selected>Choose...</option>
+						  <%employee.forEach(function(employees){ %>
+							<option><%=employees.username%></option>
+				        <% }); %>
+					  </select>
+				    </div>
+				    <div class="col">
+				      <input type="text" name="shopName" class="form-control form-control-sm" placeholder="Shop Name">
+				    </div>
+				  </div>
+				
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+		        <button type="submit" class="btn btn-primary btn-sm">Create</button>
+		      </div>
+		    </div>
+		    </form>
+		  </div>
+		</div>
+		<!--end of model-->
+		
+	</div>
+<% include ../partials/footer %>

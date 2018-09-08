@@ -1,0 +1,103 @@
+<% include ../partials/header %>
+<div class="container top-margin">
+
+			<div class="card mt-2">
+				<div class="card-body">
+			    	<h4  style="text-align: center;"><i style="color: red;" class="fas fa-list-ol"></i> &nbsp WELCOME TO SCHEDULER SECTION</h4>
+			    	<hr>
+
+			    	<div class="row">
+			    		<div class="col-lg-4 col-md-4 col-4">
+			    			<h2 class="card-notification1"><i data-toggle="modal" data-target="#admin" class="far fa-envelope"></i></h2>
+			    			<p style="text-align: right;" class="admin-notification"> INBOX</p>
+			    		</div>
+
+			    		<div class="col-lg-4 col-md-4 col-4">
+			    			<h2 class="card-notification2"><i data-toggle="modal" data-target="#admin" class="fas fa-inbox"></i></h2>
+			    			<p style="text-align: center;" class="admin-notification"> COMPOSE</p>
+			    		</div>
+
+			    		<div class="col-lg-4 col-md-4 col-4">
+			    			<h2 class="card-notification3"><i data-toggle="modal" data-target="#admin" class="fab fa-leanpub"></i></h2>
+			    			<p style="text-align: left;" class="admin-notification"> TASK</p>
+			    		</div>
+			    	</div>
+				</div>
+			</div>
+
+		<!--compose schedule-->
+
+			<div class="card mt-4">
+			  <div class="card-body">
+
+			  	<div class="row">
+			  		<div class="col-lg-2 col-md-2 mt-2">
+			  			<h5><i style="color: red;" class="fas fa-plus-square"></i> Create</h5>
+			  		</div>
+
+			  		<div class="col-lg-10 col-md-10">
+
+			  			<form action="/task" method="post">
+						  <div class="row">
+						    <div class="col-lg-3 mt-2">
+							    <select name="username" id="inputState" class="form-control">
+							        <option selected>Choose...</option>
+							        <% foundUser.forEach(function(employee){ %>
+										<option><%=employee.username%></option>
+							        <% }); %>
+							    </select>
+						    </div>
+						    <div class="col-lg-6 mt-2">
+						      <input type="text" name="task" class="form-control" placeholder="TASK" required>
+						    </div>
+						    <div class="col-lg-2 mt-2">
+						      <input type="text" name="qty" class="form-control" placeholder="QTY" required>
+						    </div>
+						    <div class="col-lg-1 mt-2">
+						      <button type="submit" class="btn btn-primary">OK</button>
+						    </div>
+						  </div>
+						</form>
+
+			  		</div>
+			  		
+			  	</div>
+
+			  </div>
+			</div>
+			<!--showing all taks-->
+
+			<div class="card mt-4">
+			  <div class="card-body">
+			  	<h4 style="text-align: center;">TODAY'S ASSIGNED TASKS</h4>
+			    <div class="row">
+			    	<% foundUser.forEach(function(employees){ %>
+						<div class="col-lg-4 mt-3">
+							<div class="card">
+							  <div class="card-body">
+							    <ul class="list-group">
+								  <li class="list-group-item d-flex justify-content-between align-items-center active">
+								    <%=employees.username%> (<%=employees.employee%>)
+								  </li>
+								  <% if (employees.tasks.length === 0) { %>
+							      		<li class="list-group-item d-flex justify-content-between align-items-center">
+									    	No Task assigned !
+									  	</li>
+							      <% } %>
+								  <% employees.tasks.forEach(function(task){ %>
+									  <li class="list-group-item d-flex justify-content-between align-items-center">
+									    <%= task.text %> 
+									    <span class="badge badge-primary badge-pill"><%= task.qtyAssinged %></span>
+									  </li>
+								  <% }) %>
+								</ul>
+							  </div>
+							</div>
+						</div>
+					<%})%>
+			    </div>
+			  </div>
+			</div>
+
+</div>
+<% include ../partials/footer %>

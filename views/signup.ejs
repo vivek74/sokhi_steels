@@ -1,0 +1,114 @@
+<% include ./partials/header %>
+	<div class="container top-margin" >
+		<div class="container">
+			<div class="card mt-5">
+			  <div class="card-body">
+			    <h4 style="text-align: center;"><span style="color: red; font-size: 1.5em;"><i class="fas fa-user-plus"></i></span> CREATE NEW EMPLOYEE</h4>
+			  </div>
+			</div>
+		</div>
+
+		<!--enter details-->
+		<div class="container">
+			<div class="card mt-5">
+			  <div class="card-body">
+			    <form action="/admin/create-new-employee" method="POST">
+			      <div class="form-group col-md-4">
+				    <label for="inputemployee">Employee role</label>
+				    <select name="employeeRole" id="employee-role" class="form-control">
+				        <option selected>Choose...</option>
+				        <option>admin</option>
+				        <option>inventry</option>
+				        <option>production</option>
+				        <option>sails</option>
+				        <option>scheduler</option>
+				    </select>
+				  </div>
+				  <div class="form-row">
+				    <div class="form-group col-md-6">
+				      <label for="inputuser">USER ID</label>
+				      <input type="user" name="userid" class="form-control" id="inputuser" placeholder="Enter unique user id">
+				    </div>
+				    <div class="form-group col-md-6">
+				      <label for="inputPassword4">Password</label>
+				      <input type="password" name="password" class="form-control" id="inputPassword4" placeholder="Password">
+				    </div>
+				  </div>
+				  <div class="form-row">
+				    <div class="form-group col-md-6">
+				      <label for="inputfname">First name</label>
+				      <input type="text" name="firstname" class="form-control" id="inputfname" placeholder="First name">
+				    </div>
+				    <div class="form-group col-md-6">
+				      <label for="inputlname">Last name</label>
+				      <input type="text" name="lastname" class="form-control" id="inputlname" placeholder="Last name">
+				    </div>
+				  </div>
+
+				  <div class="form-row">
+
+				    <div class="form-group col-md-5">
+				      <label for="inputemail">Email</label>
+				      <input type="text" name="email" class="form-control" id="inputemail" placeholder="abc@gmail.com">
+				    </div>
+
+				    <div class="form-group col-md-3">
+				      <label for="age">AGE</label>
+				      <input type="text" name="age" class="form-control" placeholder="Age">
+				  	</div>
+
+				    <div class="form-group col-md-4">
+				      <label for="inputphone">Phone number</label>
+				      <input type="number" name="phoneno" class="form-control" placeholder="1234567890">
+				    </div>
+				  </div>
+				  <hr>
+				  <div class="form-group">
+				    <label for="inputAddress">Address</label>
+				    <input type="text" name="Address" class="form-control" id="inputAddress" placeholder="1234 Main St">
+				  </div>
+				  <div class="form-row">
+				    <div class="form-group col-md-6">
+				      <label for="inputCity">City</label>
+				      <input type="text" name="city" class="form-control" id="inputCity">
+				    </div>
+				    <div class="form-group col-md-4">
+				      <label for="inputState">State</label>
+				      <select name="state" id="inputState" class="form-control">
+				        <option selected>Choose...</option>
+				        <option>Punjab</option>
+				        <option>Up</option>
+				        <option>Bihar</option>
+				        <option>Orrisa</option>
+				        <option>Gujarat</option>
+				        <option>Rajasthan</option>
+				      </select>
+				    </div>
+				    <div class="form-group col-md-2">
+				      <label for="inputZip">Zip</label>
+				      <input name="zip" type="text" class="form-control" id="inputZip">
+				    </div>
+				  </div>
+				  <hr>
+				  <div class="form-group">
+				    <label for="admincode">Admin code</label>
+				    <input name="adminCode" type="text" class="form-control" id="adminCode">
+				  </div>
+				  <p style="font-weight: bold;">Select employee type :-</p>
+				  <div class="form-group col-md-4">
+				    <label for="inputemployee">Employee type</label>
+				    <select name="employeeType" id="employee-type" class="form-control">
+				        <option selected>Choose...</option>
+				        <option>inventry</option>
+				        <option>production</option>
+				        <option>sails</option>
+				        <option>scheduler</option>
+				    </select>
+				  </div>
+				  <button type="submit" class="btn btn-primary">CREATE</button>
+				</form>
+			  </div>
+			</div>
+		</div>
+	</div>
+<% include ./partials/footer %>

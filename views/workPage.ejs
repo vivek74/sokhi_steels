@@ -1,0 +1,747 @@
+<% include ./partials/header %>
+	<div class="container">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="#">Home</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Work-Page</li>
+			</ol>
+		</nav>
+	</div>
+	<div class="container">
+		
+	</div>
+	
+
+	<% if(currentUser && currentUser.isAdmin){ %>
+		<div class="container top-margin">
+			<div class="card mt-2 card-11">
+				<div class="card-body">
+			    	<h4  style="text-align: center;"><i style="color: red;" class="fas fa-lock-open"></i> &nbsp WELCOME TO ADMIN SECTION</h4>
+			    	<hr>
+
+			    	<div class="row">
+			    		<div class="col-lg-4 col-md-4 col-4">
+			    			<h2 class="card-notification1"><i data-toggle="modal" data-target="#admin" class="far fa-envelope"></i></h2>
+			    			<p style="text-align: right;" class="admin-notification"> INBOX</p>
+			    		</div>
+
+			    		<div class="col-lg-4 col-md-4 col-4">
+			    			<h2 class="card-notification2"><i data-toggle="modal" data-target="#admin" class="fas fa-inbox"></i></h2>
+			    			<p style="text-align: center;" class="admin-notification"> COMPOSE</p>
+			    		</div>
+
+			    		<div class="col-lg-4 col-md-4 col-4">
+			    			<h2 class="card-notification3"><i data-toggle="modal" data-target="#admin" class="fab fa-leanpub"></i></h2>
+			    			<p style="text-align: left;" class="admin-notification"> TASK</p>
+			    		</div>
+			    	</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-3 col-md-3 mt-4">
+					<div onclick="window.location.href='/admin/admin-pannel/employee-details'" class="card">
+					  <div class="card-body card-1">
+					    <h5 style="text-align: center; text-transform: uppercase; color: #003b46;" class="card-title">USER DETAILS</h5>
+					    <hr>
+					    <p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+					    	<i style="font-size: 8rem; color: #07575b;" class="fas fa-users"></i>
+					    </p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-3  mt-4">
+					<div onclick="window.location.href='/admin/admin-pannel/masterSheet'" class="card">
+					  <div class="card-body card-1">
+					    <h5 style="text-align: center; text-transform: uppercase;" class="card-title">MASTER SHEET</h5>
+					    <hr>
+					    <p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+					    	<i style="font-size: 8rem; color: #07575b;" class="far fa-file-alt"></i>
+					    </p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-3 mt-4">
+					<div onclick="window.location.href='/admin/admin-pannel/submitions'" class="card">
+					  <div class="card-body card-1">
+					    <h5 style="text-align: center; text-transform: uppercase;" class="card-title">SUBMITIONS</h5>
+					    <hr>
+					    <p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+					    	<i style="font-size: 8rem; color: #07575b;" class="far fa-copy"></i>
+					    </p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-3 mt-4">
+					<div onclick="window.location.href='/admin/admin-pannel/sails'" class="card">
+					  <div class="card-body card-1">
+					    <h5 style="text-align: center; text-transform: uppercase;" class="card-title">SALES</h5>
+					    <hr>
+					    <p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+					    	<i style="font-size: 8rem; color: #07575b;" class="far fa-money-bill-alt"></i>
+					    </p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-3 mt-4">
+					<div onclick="window.location.href='/admin/admin-pannel/inventory'" class="card">
+					  <div class="card-body card-1">
+					    <h5 style="text-align: center; text-transform: uppercase;" class="card-title">INVENTORY</h5>
+					    <hr>
+					    <p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+					    	<i style="font-size: 8rem; color: #07575b;" class="fas fa-tasks"></i>
+					    </p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-3 mt-4">
+					<div onclick="window.location.href='/admin/admin-pannel/employee-details'" class="card">
+					  <div class="card-body card-1">
+					    <h5 style="text-align: center; text-transform: uppercase;" class="card-title">PRODUCTION</h5>
+					    <hr>
+					    <p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+					    	<i style="font-size: 8rem; color: #07575b;" class="fas fa-wrench"></i>
+					    </p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-3 mt-4">
+					<div onclick="window.location.href='/admin/admin-pannel/log'" class="card">
+					  <div class="card-body card-1">
+					    <h5 style="text-align: center; text-transform: uppercase;" class="card-title">LOG</h5>
+					    <hr>
+					    <p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+					    	<i style="font-size: 8rem; color: #07575b;" class="fab fa-leanpub"></i>
+					    </p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-3 mt-4">
+					<div onclick="window.location.href='/admin/admin-pannel/schedular'" class="card">
+					  <div class="card-body card-1">
+					    <h5 style="text-align: center; text-transform: uppercase;" class="card-title">ALL SCHEDULED TASK</h5>
+					    <hr>
+					    <p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+					    	<i style="font-size: 8rem; color: #07575b;" class="fas fa-tasks"></i>
+					    </p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-3 mt-4">
+					<div onclick="window.location.href='/admin/admin-pannel/production-shops'" class="card">
+					  <div class="card-body card-1">
+					    <h5 style="text-align: center; text-transform: uppercase;" class="card-title">PRODUCTION SHOPS</h5>
+					    <hr>
+					    <p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+					    	<i style="font-size: 8rem; color: #07575b;" class="fab fa-houzz"></i>
+					    </p>
+					  </div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="admin" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <form action="/message" method="post"> 
+				    <div class="form-group">
+				      <label for="inputState">State</label>
+				      <select name="username" id="inputState" class="form-control">
+				        <option selected>Choose...</option>
+				        <%foundUser.forEach(function(employee){ %>
+							<option><%=employee.username%></option>
+				        <% }); %>
+				      </select>
+				    </div>
+				    <div class="form-group">
+				    	<label for="exampleFormControlTextarea1">Write message</label>
+				    	<textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+				  	</div>
+				    <div class="modal-footer">
+				        <button type="submit" class="btn btn-primary">Send</button>
+				    </div>
+				</form>
+		      </div>
+		      
+		    </div>
+		  </div>
+		</div>
+
+
+	<%} else if(currentUser && currentUser.isInventry){%>
+	
+	<div class="container top-margin" >
+			<div class="card mt-2">
+				<div class="card-body">
+			    	<h4  style="text-align: center; text-transform: uppercase;"><i style="color: red;" class="fas fa-list-ol"></i> &nbsp  WELLCOME <%=foundtask.username%> TO the INVENTORY SECTION</h4>
+			    	<hr>
+
+			    	<div class="row">
+			    		<div class="col-lg-4 col-md-4 col-4">
+			    			<h2 class="card-notification1"><i data-toggle="modal" data-target="#admin" class="far fa-envelope"></i></h2>
+			    			<p style="text-align: right;" class="admin-notification"> INBOX</p>
+			    		</div>
+
+			    		<div class="col-lg-4 col-md-4 col-4">
+			    			<h2 class="card-notification2"><i data-toggle="modal" data-target="#admin" class="fas fa-inbox"></i></h2>
+			    			<p style="text-align: center;" class="admin-notification"> COMPOSE</p>
+			    		</div>
+
+			    		<div class="col-lg-4 col-md-4 col-4">
+			    			<h2 class="card-notification3"><i data-toggle="modal" data-target="#admin" class="fab fa-leanpub"></i></h2>
+			    			<p style="text-align: left;" class="admin-notification"> TASK</p>
+			    		</div>
+			    	</div>
+				</div>
+			</div>
+	
+				<div class="row">
+
+					<div class="col-lg-4 col-md-4 mt-4">
+						<div class="card">
+							<div class="card-body card-11">
+								<h5 style="text-align: center; text-transform: uppercase;" class="card-title">TODAY'S TASK</h5>
+								
+								<ul class="list-group">
+								  <% if (employee.tasks.length === 0) { %>
+							      		<div class="container">
+							      			<hr>
+							      			<em>No Task!</em>
+							      		</div>
+							      <% } %>
+								  <% foundtask.tasks.forEach(function(task){ %>
+									  <li class="list-group-item d-flex justify-content-between align-items-center">
+									  	<div class="row">
+									  		<div class="col-lg-4 col-md-4 col-4">
+									  			<%= task.text %>
+									  		</div>
+									  		<div class="col-lg-3 col-md-3 col-3">
+									  			<span class="badge badge-primary badge-pill"><%= task.qtyAssinged %>
+									    		</span>
+									  		</div>
+									  		<div class="col-lg-5 col-md-5 col-5">
+									  			<% if (task.qtyDone <= 0){ %>
+									  			<form action="/done" method="post">
+									  				<div class="row">
+									  					<div class="col-lg-7 col-md-7 col-7">
+													  		<input class="form-control form-control-sm" type="text" placeholder="Qty">
+									  					</div>
+									  					<div class="col-lg-5 col-md-5 col-5">
+									  						<button style="cursor: pointer;" type="submit" class="badge badge-success">OK
+											  				</button>
+									  					</div>
+									  				</div>
+									  			</form>
+									  				
+											  	<%} else {%>
+											  		<span class="badge badge-primary badge-pill"><%= task.qtyDone %>
+											  		</span>
+											  	<%}%>		
+									  		</div>
+									  	</div>
+									  </li>
+								  <% }) %>
+								</ul>
+
+								<h5 class="mt-4" style="text-align: center; text-transform: uppercase;" class="card-title">PENDING TASK</h5>
+
+								<ul class="list-group">
+								  <li class="list-group-item d-flex justify-content-between align-items-center">
+								  		No Pending Task ! 
+								  </li>
+								</ul>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-8 col-md-8 mt-4">
+						<div class="row">
+
+							<div class="col-lg-4 col-md-4">
+								<div onclick="window.location.href='/work-page/rawMaterial'" class="card">
+									  <div class="card-body card-1">
+									    <h5 style="text-align: center; text-transform: uppercase;" class="card-title">RAW MATERIAL</h5>
+									    <hr>
+									    <p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+									    	<i style="font-size: 8rem; color: #07575b;" class="fab fa-whmcs"></i>
+									    </p>
+									  </div>
+									</div>
+							</div>
+
+							<div class="col-lg-4 col-md-4">
+								<div onclick="window.location.href='/work-page/finished-product'" class="card">
+								  <div class="card-body card-1">
+								    <h5 style="text-align: center; text-transform: uppercase;" class="card-title">FINISH PRODUCT</h5>
+								    <hr>
+								    <p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+								    	<i style="font-size: 8rem; color: #07575b;" class="fas fa-wrench"></i>
+								    </p>
+								  </div>
+								</div>
+							</div>
+
+							<div class="col-lg-4 col-md-4">
+								<div onclick="window.location.href='/admin/admin-pannel/employee-details'" class="card">
+								  <div class="card-body card-1">
+								    <h5 style="text-align: center; text-transform: uppercase;" class="card-title">STOCK CONTROL</h5>
+								    <hr>
+								    <p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+								    	<i style="font-size: 8rem; color: #07575b;" class="fas fa-folder-open"></i>
+								    </p>
+								  </div>
+								</div>
+							</div>
+
+						</div>	
+					</div>
+				</div>
+
+				<div class="card mt-4">
+					<div class="card-body card-11">
+						<h5 style="text-align: center;"><i style="color: red;" class="far fa-envelope"></i> &nbsp MY MESSAGES</h5>
+						<div class="row">
+					      <% if (employee.messages.length === 0) { %>
+					          <em style="color: grey;">no message!</em>
+					      <% } %>
+					      <% employee.messages.reverse().forEach(function(message){ %>
+					      
+					      <div class="col-md-12 col-xs-12">
+					      	<hr>
+					        <strong style="color: #2969b0; font-size: 13px;"><i class="fas fa-user-circle" style="color: #2969b0;"></i><span class="show_comments_topic"> <%= message.author.username %></span></strong>
+					        <span style="color: #2969b0; font-size: 13px;" class="pull-right"><%= moment(message.createdAt).fromNow() %></span>
+					        <div class="mt-2">
+					          <%= message.text %> 
+					        </div>
+					      </div>
+					      <% }) %>
+					    </div>
+					</div>
+				</div>
+
+		</div>
+
+
+		<div class="modal fade" id="production" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLongTitle">My Messages</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<div class="container">
+		      		<div class="row">
+				      <% if (employee.messages.length === 0) { %>
+				          <em style="color: grey;">no message!</em>
+				      <% } %>
+				      <% employee.messages.reverse().forEach(function(message){ %>
+				      <div class="col-md-12 col-xs-12">
+				        <strong style="color: #2969b0; font-size: 13px;"><i class="fas fa-user-circle" style="color: #2969b0;"></i><span class="show_comments_topic"> <%= message.author.username %></span></strong>
+				        <span style="color: #2969b0; font-size: 13px;" class="pull-right"><%= moment(message.createdAt).fromNow() %></span>
+				        <div class="mt-2">
+				          <%= message.text %> 
+				        </div>
+				      </div>
+				      <% }) %>
+				    </div>
+		      	</div>
+		      </div>
+		      
+		    </div>
+		  </div>
+		</div>
+
+
+
+
+
+
+
+	<%} else if(currentUser && currentUser.isProduction){%>
+		<div class="container top-margin" >
+			<div class="card">
+				<div class="card-body">
+					<h4 style="text-align: center; text-transform: uppercase;"><i style="color: red;" class="far fa-money-bill-alt"></i> &nbsp WELLCOME <%=foundtask.username%> TO the PRODUCTION SECTION</h4>
+					<h2 style="text-align: right; color: red; cursor: pointer; "><i data-toggle="modal" data-target="#production" class="far fa-envelope"></i></h2>
+				</div>
+			</div>
+	
+				<div class="row">
+
+					<div class="col-lg-4 col-md-4 mt-4">
+						<div class="card">
+							<div class="card-body card-1">
+								<h5 style="text-align: center; text-transform: uppercase;" class="card-title">TODAY'S TASK</h5>
+								
+								<ul class="list-group">
+								  <% if (employee.tasks.length === 0) { %>
+							      		<div class="container">
+							      			<hr>
+							      			<em>No Task!</em>
+							      		</div>
+							      <% } %>
+								  <% foundtask.tasks.forEach(function(task){ %>
+									  <li class="list-group-item d-flex justify-content-between align-items-center">
+									  	<div class="row">
+									  		<div class="col-lg-4 col-md-4 col-4">
+									  			<%= task.text %>
+									  		</div>
+									  		<div class="col-lg-3 col-md-3 col-3">
+									  			<span class="badge badge-primary badge-pill"><%= task.qtyAssinged %>
+									    		</span>
+									  		</div>
+									  		<div class="col-lg-5 col-md-5 col-5">
+									  			<% if (task.qtyDone <= 0){ %>
+									  			<form action="/done" method="post">
+									  				<div class="row">
+									  					<div class="col-lg-7 col-md-7 col-7">
+													  		<input class="form-control form-control-sm" type="text" placeholder="Qty">
+									  					</div>
+									  					<div class="col-lg-5 col-md-5 col-5">
+									  						<button style="cursor: pointer;" type="submit" class="badge badge-success">OK
+											  				</button>
+									  					</div>
+									  				</div>
+									  			</form>
+									  				
+											  	<%} else {%>
+											  		<span class="badge badge-primary badge-pill"><%= task.qtyDone %>
+											  		</span>
+											  	<%}%>		
+									  		</div>
+									  	</div>
+									  </li>
+								  <% }) %>
+								</ul>
+
+								<h5 class="mt-4" style="text-align: center; text-transform: uppercase;" class="card-title">PENDING TASK</h5>
+
+								<ul class="list-group">
+								  <li class="list-group-item d-flex justify-content-between align-items-center">
+								  		No Pending Task ! 
+								  </li>
+								</ul>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-8 col-md-8 mt-4">
+						<div class="row">
+
+							<div class="col-lg-4 col-md-4">
+								<div onclick="window.location.href='/work-page/production'" class="card">
+									<div class="card-body card-1">
+										<h5 style="text-align: center; text-transform: uppercase;" class="card-title">PRODUCTION</h5>
+										<p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+											<i style="font-size: 8rem; color: #07575b;" class="fab fa-whmcs"></i>
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-4 col-md-4">
+								<div onclick="window.location.href='/work-page/inventory-order'" class="card">
+									<div class="card-body card-1">
+										<h5 style="text-align: center; text-transform: uppercase;" class="card-title">INVENTORY ORDER</h5>
+										<p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+											<i style="font-size: 8rem; color: #07575b;" class="fas fa-cart-arrow-down"></i>
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-4 col-md-4">
+								<div onclick="window.location.href='/admin/admin-pannel/employee-details'" class="card">
+									<div class="card-body card-1">
+										<h5 style="text-align: center; text-transform: uppercase;" class="card-title">STOCK CONTROL</h5>
+										<p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+											<i style="font-size: 8rem; color: #07575b;" class="fas fa-folder-open"></i>
+										</p>
+									</div>
+								</div>
+							</div>
+
+						</div>	
+					</div>
+				</div>
+
+				<div class="card mt-4">
+					<div class="card-body card-1">
+						<h5 style="text-align: center;"><i style="color: red;" class="far fa-envelope"></i> &nbsp MY MESSAGES</h5>
+						<div class="row">
+					      <% if (employee.messages.length === 0) { %>
+					          <em style="color: grey;">no message!</em>
+					      <% } %>
+					      <% employee.messages.reverse().forEach(function(message){ %>
+					      
+					      <div class="col-md-12 col-xs-12">
+					      	<hr>
+					        <strong style="color: #2969b0; font-size: 13px;"><i class="fas fa-user-circle" style="color: #2969b0;"></i><span class="show_comments_topic"> <%= message.author.username %></span></strong>
+					        <span style="color: #2969b0; font-size: 13px;" class="pull-right"><%= moment(message.createdAt).fromNow() %></span>
+					        <div class="mt-2">
+					          <%= message.text %> 
+					        </div>
+					      </div>
+					      <% }) %>
+					    </div>
+					</div>
+				</div>
+
+		</div>
+
+
+		<div class="modal fade" id="production" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLongTitle">My Messages</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<div class="container">
+		      		<div class="row">
+				      <% if (employee.messages.length === 0) { %>
+				          <em style="color: grey;">no message!</em>
+				      <% } %>
+				      <% employee.messages.reverse().forEach(function(message){ %>
+				      <div class="col-md-12 col-xs-12">
+				        <strong style="color: #2969b0; font-size: 13px;"><i class="fas fa-user-circle" style="color: #2969b0;"></i><span class="show_comments_topic"> <%= message.author.username %></span></strong>
+				        <span style="color: #2969b0; font-size: 13px;" class="pull-right"><%= moment(message.createdAt).fromNow() %></span>
+				        <div class="mt-2">
+				          <%= message.text %> 
+				        </div>
+				      </div>
+				      <% }) %>
+				    </div>
+		      	</div>
+		      </div>
+		      
+		    </div>
+		  </div>
+		</div>
+
+
+	<%} else if(currentUser && currentUser.isSails){%>
+		<div class="container top-margin" >
+			<div class="card">
+			  <div class="card-body">
+			    <h2  style="text-align: center;"><i style="color: red;" class="far fa-money-bill-alt"></i> &nbsp WELLCOME TO SALES SECTION</h2>
+			    <h2 style="text-align: right; color: red; cursor: pointer; "><i data-toggle="modal" data-target="#sales" class="far fa-envelope"></i></h2>
+			  </div>
+			</div>
+
+			<div class="row">
+
+				<div class="col-lg-3 col-md-3 mt-4">
+					<div onclick="window.location.href='/work-page/inventory-order'" class="card">
+					  <div class="card-body card-1">
+					    <h5 style="text-align: center; text-transform: uppercase;" class="card-title">INVENTORY ORDER</h5>
+					    <p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+					    	<i style="font-size: 8rem; color: #07575b;" class="fas fa-cart-arrow-down"></i>
+					    </p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-3 mt-4">
+					<div onclick="window.location.href='/admin/admin-pannel/employee-details'" class="card">
+					  <div class="card-body card-1">
+					    <h5 style="text-align: center; text-transform: uppercase;" class="card-title">STOCK CONTROL</h5>
+					    <p style="text-align: center; cursor: pointer;" class="card-text mt-3">
+					    	<i style="font-size: 8rem; color: #07575b;" class="fas fa-folder-open"></i>
+					    </p>
+					  </div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+		<div class="modal fade" id="sales" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLongTitle">My Messages</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<div class="container">
+		      		<div class="row">
+				      <% if (foundUser.messages.length === 0) { %>
+				          <em style="color: grey;">no message!</em>
+				      <% } %>
+				      <% foundUser.messages.reverse().forEach(function(message){ %>
+				      <div class="col-md-12 col-xs-12">
+				        <strong style="color: #2969b0; font-size: 13px;"><i class="fas fa-user-circle" style="color: #2969b0;"></i><span class="show_comments_topic"> <%= message.author.username %></span></strong>
+				        <span style="color: #2969b0; font-size: 13px;" class="pull-right"><%= moment(message.createdAt).fromNow() %></span>
+				        <div class="mt-2">
+				          <%= message.text %> 
+				        </div>
+				      </div>
+				      <% }) %>
+				    </div>
+		      	</div>
+		      </div>
+		      
+		    </div>
+		  </div>
+		</div>
+	<%} else if(currentUser && currentUser.isScheduler){ %>
+		<div class="container top-margin">
+
+			<div class="card mt-2">
+				<div class="card-body">
+			    	<h4  style="text-align: center;"><i style="color: red;" class="fas fa-list-ol"></i> &nbsp WELCOME TO SCHEDULER SECTION</h4>
+			    	<hr>
+
+			    	<div class="row">
+			    		<div class="col-lg-4 col-md-4 col-4">
+			    			<h2 class="card-notification1"><i data-toggle="modal" data-target="#admin" class="far fa-envelope"></i></h2>
+			    			<p style="text-align: right;" class="admin-notification"> INBOX</p>
+			    		</div>
+
+			    		<div class="col-lg-4 col-md-4 col-4">
+			    			<h2 class="card-notification2"><i data-toggle="modal" data-target="#admin" class="fas fa-inbox"></i></h2>
+			    			<p style="text-align: center;" class="admin-notification"> COMPOSE</p>
+			    		</div>
+
+			    		<div class="col-lg-4 col-md-4 col-4">
+			    			<h2 class="card-notification3"><i data-toggle="modal" data-target="#admin" class="fab fa-leanpub"></i></h2>
+			    			<p style="text-align: left;" class="admin-notification"> TASK</p>
+			    		</div>
+			    	</div>
+				</div>
+			</div>
+
+		<!--compose schedule-->
+
+			<div class="card mt-4">
+			  <div class="card-body">
+
+			  	<div class="row">
+			  		<div class="col-lg-2 col-md-2 mt-2">
+			  			<h5><i style="color: red;" class="fas fa-plus-square"></i> Create</h5>
+			  		</div>
+
+			  		<div class="col-lg-10 col-md-10">
+
+			  			<form action="/task" method="post">
+						  <div class="row">
+						    <div class="col-lg-3 mt-2">
+							    <select name="username" id="inputState" class="form-control">
+							        <option selected>Choose...</option>
+							        <% foundUser.forEach(function(employee){ %>
+										<option><%=employee.username%></option>
+							        <% }); %>
+							    </select>
+						    </div>
+						    <div class="col-lg-6 mt-2">
+						      <input type="text" name="task" class="form-control" placeholder="TASK" required>
+						    </div>
+						    <div class="col-lg-2 mt-2">
+						      <input type="text" name="qty" class="form-control" placeholder="QTY" required>
+						    </div>
+						    <div class="col-lg-1 mt-2">
+						      <button type="submit" class="btn btn-primary">OK</button>
+						    </div>
+						  </div>
+						</form>
+
+			  		</div>
+			  		
+			  	</div>
+
+			  </div>
+			</div>
+			<!--showing all taks-->
+
+			<div class="card mt-4">
+			  <div class="card-body">
+			  	<h4 style="text-align: center;">TODAY'S ASSIGNED TASKS</h4>
+			    <div class="row">
+			    	<% foundUser.forEach(function(employees){ %>
+						<div class="col-lg-4 mt-3">
+							<div class="card">
+							  <div class="card-body">
+							    <ul class="list-group">
+								  <li class="list-group-item d-flex justify-content-between align-items-center active">
+								    <%=employees.username%> (<%=employees.employee%>)
+								  </li>
+								  <% if (employees.tasks.length === 0) { %>
+							      		<li class="list-group-item d-flex justify-content-between align-items-center">
+									    	No Task assigned !
+									  	</li>
+							      <% } %>
+								  <% employees.tasks.forEach(function(task){ %>
+									  <li class="list-group-item d-flex justify-content-between align-items-center">
+									    <%= task.text %> 
+									    <span class="badge badge-primary badge-pill"><%= task.qtyAssinged %></span>
+									  </li>
+								  <% }) %>
+								</ul>
+							  </div>
+							</div>
+						</div>
+					<%})%>
+			    </div>
+			  </div>
+			</div>
+			<!--messages-->
+
+			<div class="card mt-4">
+					<div class="card-body card-1">
+						<h5 style="text-align: center;"><i style="color: red;" class="far fa-envelope"></i> &nbsp MY MESSAGES</h5>
+						<div class="row">
+					      <% if (employee.messages.length === 0) { %>
+					      		<div class="container">
+					      			<hr>
+					      			<em style="color: grey;">no message!</em>
+					      		</div>
+					      <% } %>
+					      <% employee.messages.reverse().forEach(function(message){ %>
+					      
+					      <div class="col-md-12 col-xs-12">
+					      	<hr>
+					        <strong style="color: #2969b0; font-size: 13px;"><i class="fas fa-user-circle" style="color: #2969b0;"></i><span class="show_comments_topic"> <%= message.author.username %></span></strong>
+					        <span style="color: #2969b0; font-size: 13px;" class="pull-right"><%= moment(message.createdAt).fromNow() %></span>
+					        <div class="mt-2">
+					          <%= message.text %> 
+					        </div>
+					      </div>
+					      <% }) %>
+					    </div>
+					</div>
+				</div>		
+		</div>
+	<%}%>
+<% include ./partials/footer %>

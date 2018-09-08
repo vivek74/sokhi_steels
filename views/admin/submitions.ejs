@@ -1,0 +1,174 @@
+<% include ../partials/header %>
+<!--inventory-->
+	<div class="container-fluid top-margin">
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<div class="card mt-3">
+				  <div class="card-body">
+				  	<h5 class="card-title">Row Material</h5>
+				  	<h5 class="float-right" style="font-size: 15px;">Todays submitions: <span style="color: red;"><%=totalinventory%></span> </h5>
+				  	<div class="table-responsive">
+					    <table style="font-size: 9px;" class="table table-striped table-dark">
+						  <thead>
+						    <tr>
+						      <th scope="col">Item_No</th>
+						      <th scope="col">Item_Name</th>
+						      <th scope="col">Import_date</th>
+						      <th scope="col">Qty</th>
+						      <th scope="col">CPI</th>
+						      <th scope="col">TC</th>
+						      <th scope="col">Author</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						  	<% allinventory.reverse().forEach(function(allinventorys){ %>
+						    <tr>
+						      <th style="text-transform: uppercase;"><%=allinventorys.itemNo%></th>
+						      <td style="text-transform: uppercase;"><%=allinventorys.itemName%></td>
+						      <td><%= moment(allinventorys.importDate).format("DD-MMM-YYYY") %></td>
+						      <td><%=allinventorys.itemQty%></td>
+						      <td>₹ <%=allinventorys.costPerItem%>/-</td>
+						      <td>₹ <%=allinventorys.totalCost%>/-</td>
+						      <td>₹ <%=allinventorys.user%>/-</td>
+						    </tr>
+						    <%});%>
+						  </tbody>
+						</table>
+					</div>
+				  </div>
+				</div>
+			</div>
+			<!--export-->
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="card mt-3">
+				  <div class="card-body">
+				  	<h5 class="card-title">Export List</h5>
+				  	<h5 class="float-right" style="font-size: 15px;">Todays submitions: <span style="color: red;"><%=totalexport%></span> </h5>
+				  	<div class="table-responsive">
+					    <table style="font-size: 9px;" class="table table-striped table-dark">
+						  <thead>
+						    <tr>
+						      <th scope="col">Item_No</th>
+						      <th scope="col">Item_Name</th>
+						      <th scope="col">Sell_Date</th>
+						      <th scope="col">QTY</th>
+						      <th scope="col">CPI</th>
+						      <th scope="col">TC</th>
+						      <th scope="col">Customer_Name</th>
+						      <th scope="col">Customer_Contact_No</th>
+						      <th scope="col">Customer_Address</th>
+						      <th scope="col">Author</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						  	<% allexport.reverse().forEach(function(allexport){ %>
+						    <tr>
+						      <th style="text-transform: uppercase;"><%=allexport.ItemNo%></th>
+						      <td style="text-transform: uppercase;"><%=allexport.ItemName%></td>
+						      <td><%= moment(allexport.SellDate).format("DD-MMM-YYYY") %></td>
+						      <td><%=allexport.itemQty%></td>
+						      <td>₹ <%=allexport.costPerItem%>/-</td>
+						      <td>₹ <%=allexport.totalCost%>/-</td>
+						      <td><%=allexport.CustomerName%></td>
+						      <td><%=allexport.CustomerContact%></td>
+						      <td><%=allexport.CustomerAddress%></td>
+						      <td><%=allexport.user%></td>
+						    </tr>
+						    <%});%>
+						  </tbody>
+						</table>
+					</div>
+				  </div>
+				</div>
+			</div>
+			<!--finished-->
+
+			<div class="col-lg-12 col-md-12">
+				<div class="card mt-3">
+				  <div class="card-body">
+				  	<h5 class="card-title">Finished Product</h5>
+				  	<h5 class="float-right" style="font-size: 15px;">Todays submitions: <span style="color: red;"><%=totalfinished%></span> </h5>
+				  	<div class="table-responsive">
+					    <table style="font-size: 9px;" class="table table-striped table-dark">
+						  <thead>
+						    <tr>
+						      <th scope="col">LOW</th>
+						      <th scope="col">Item_No</th>
+						      <th scope="col">Item_Name</th>
+						      <th scope="col">Last_updated</th>
+						      <th scope="col">Available_Item</th>
+						      <th scope="col">CPI</th>
+						      <th scope="col">TC</th>
+						      <th scope="col">Description</th>
+						      <th scope="col">Author</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						  	<% allfinished.reverse().forEach(function(allfinisheds){ %>
+						    <tr>
+						      <%if(allfinishedsallfinisheds.itemQty <= 10){%>
+						      	<td style="color: red;">LOW</td>
+						      <%} else {%>
+						      	<td>OK</td>
+						      <%}%>
+						      <th style="text-transform: uppercase;"><%=allfinisheds.ItemNo%></th>
+						      <td style="text-transform: uppercase;"><%=allfinisheds.ItemName%></td>
+						      <td><%= moment(allfinisheds.LastUpdated).format("DD-MMM-YYYY") %></td>
+						      <td><%=allfinisheds.itemQty%></td>
+						      <td>₹ <%=allfinisheds.costPerItem%>/-</td>
+						      <td>₹ <%=allfinisheds.totalCost%>/-</td>
+						      <td><%=allfinisheds.itemDisp%></td>
+						      <td><%=allfinisheds.user%></td>
+						    </tr>
+						    <%});%>
+						  </tbody>
+						</table>
+					</div>
+				  </div>
+				</div>
+			</div>
+			<!--production-->
+
+			<div class="col-lg-12 col-md-12">
+				<div class="card mt-3">
+				  <div class="card-body">
+				  	<h5 class="card-title">Production</h5>
+				  	<h5 class="float-right" style="font-size: 15px;">Todays submitions: <span style="color: red;"><%=totalproduction%></span> </h5>
+				  	<div class="table-responsive">
+					    <table style="font-size: 12px;" class="table table-striped table-dark">
+						  <thead>
+						    <tr>
+                              <th scope="col">Machine Name</th>
+                              <th scope="col">Start Time</th>
+                              <th scope="col">Item No</th>
+						      <th scope="col">Item Name</th>
+                              <th scope="col">Quantity</th>
+                              <th scope="col">End Time</th>
+                              <th scope="col">Date</th>
+                              <th scope="col">Submited by</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+                            <% allproduction.reverse().forEach(function(allproductions){ %>
+						    <tr>
+						      <th style="text-transform: uppercase;"><%= allproductions.machineName %></th>
+                              <td style="text-transform: uppercase;"><%= moment(allproductions.startTime).format("hh:mm a") %></td>
+                              <td><%= allproductions.itemNo %></td>
+						      <td><%= allproductions.itemName %></td>
+						      <td><%= allproductions.itemQuant %></td>
+                              <td style="text-transform: uppercase;"><%= moment(allproductions.endTime).format("hh:mm a") %></td>
+                              <td><%= moment(allproductions.date).format("DD-MMM-YYYY") %></td>
+                              <td><%= allproductions.user %></td>
+                            </tr>
+                            <%});%>
+						  </tbody>
+						</table>
+					</div>
+				  </div>
+				</div>
+            </div>
+
+
+		</div>
+	</div>
+<% include ../partials/footer %>
